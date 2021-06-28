@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/products.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li class="nav-text1"><a href="/dash"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+          <li class="nav-text"><a href="/dash">Home</a></li>
+          <li class="nav-text"><a href="/contact">Contact</a></li>
+          <li class="nav-text2"><a href="/logout">Logout</a></li>
+          <li class="nav-text2"><a href="/cart/orders">Orders</a></li>
+          <li class="nav-text2"><a href="/cart">MyCart</a></li>
+        </ul>
+      </nav>
+
+      <div class="cat">
+          <div style="color: black; font-size: 30px; margin-left: 8px; font-weight: bold;">CATEGORIES</div>
+          <br>
+        <ul class="list">
+            <li class="list_item"><a href="/products">All products</a></li>
+            <% categories.forEach(function(c){ %>
+                <li class="list_item"><a href="/products/<%= c.name %>"><%= c.name %></a></li>
+            <% }); %>
+        </ul>
+        </div>
+
+      <div class="row_products">
+        <% products.forEach(function(p){ %>
+                <div class="product">
+                    <a class="pa" href="/products/<%= p.category %>/<%= p._id %>">
+                        <img class="pimage" src="/product_images/<%= p._id %>/<%= p.image %>" >
+                    </a>
+                    <h3><%= p.title %></h3>
+                    <h4>Rs <%= p.price %></h4>
+                    <a style="color:black" href="/products/<%= p.category %>/<%= p._id %>">View Details</a>
+                </div>
+            <% }); %>
+        
+    </div>
+      <div class="footer">madewithlove</div>
+
+    
+</body>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/dash.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+      <nav>
+      <ul>
+        <li class="nav-text1"><a href="/"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+        <li class="nav-text"><a href="/products">Products</a></li>
+        <li class="nav-text"><a href="/contact">Contact</a></li>
+        <li class="nav-text2"><a href="/logout">Logout</a></li>
+        <li class="nav-text2"><a href="/cart/orders">Orders</a></li>
+        <li class="nav-text2"><a href="/cart">MyCart</a></li>
+      </ul>
+    </nav>
+    
+  <div class="bg-image"></div>
+  <div class="bg-text">
+    <h1 style="font-size:50px">Our Supermarket</h1>
+    <p>Get the most fresh everyday items at the best price</p>
+  </div>
+  <div class="content">
+    <div class="img">
+      <img src="/images/img.jpg">
+    </div>    
+    <div class="about">
+      <h1>ABOUT US</h1>
+      <i>
+       This website has been developed by Vidushi Tiwari as her full stack web development project. <br>
+       This website aims to cater to the everyday needs of every household. Customer can view products as per categories, add them to cart ad further place and order. Thereafter they can view previous orders. <br>
+      The admin panel allows the admin to add, edit and delete products and add categories.  
+    </i>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="card" style="background-color: rgb(247 88 134 / 73%)">
+      <div class="text">
+        <h1>Best Quality</h1>
+        <br>
+        Always supplying the most fresh grocery to your doorsteps
+      </div>
+    </div>
+    <div class="card" style="background-color: pink;">
+      <div class="text">
+        <h1>Timely Delivery</h1>
+        <br>
+        Fastest 1 day delivery with option to pay on delivery
+      </div>
+    </div>
+    <div class="card" style="background-color: rgb(148, 156, 223)">
+      <div class="text">
+        <h1>Easy Access</h1>
+        <br>
+        User Friendly interface for the best accessiblity
+      </div>
+    </div>
+    <div class="card" style="background-color:rgb(167, 197, 235)">
+      <div class="text">
+        <h1>Low Prices</h1>
+        <br>
+        Frequent sales and offers to always be the best on your pocket
+      </div>
+    </div>
+  </div>
+  <div class="products">
+    <div class="title">New products</div>
+    <% products.forEach(function(p){ %>
+      <div class="product">
+          <a class="pa" href="/products/<%= p.category %>/<%= p._id %>">
+              <img class="pimage" src="/product_images/<%= p._id %>/<%= p.image %>" >
+          </a>
+          <a class="pa" href="/products/<%= p.category %>/<%= p._id %>">
+            <h3><%= p.title %></h3>
+          </a>
+          <h4>Rs <%= p.price %></h4>
+      </div>
+  <% }); %>
+  <div class="product1">
+    <a href="/products" 
+    style="text-decoration: none;color:black; ">
+    All products <i class="fas fa-arrow-right"></i> </a>
+  </div>
+    
+  </div>
+    <div class="footer">madewithlove</div>
+</body>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</html>

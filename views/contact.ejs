@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/contact.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+      <nav>
+      <ul>
+        <li class="nav-text1"><a href="/"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+        <li class="nav-text"><a href="/dash">Home</a></li>
+        <li class="nav-text"><a href="/products">Products</a></li>
+        <li class="nav-text2"><a href="/logout">Logout</a></li>
+        <li class="nav-text2"><a href="/cart/orders">Orders</a></li>
+        <li class="nav-text2"><a href="/cart">MyCart</a></li>
+      </ul>
+    </nav>
+
+  <div class="heading">Have a problem? Contact us now!</div>
+    
+  <div class="content">
+    <div class="img">
+      <img src="/images/letter.jpg">
+    </div>    
+    <div class="container">
+        <% if(msg) {%>
+            <div class="msg">
+            <%=msg%>
+        </div>
+        <%}%>
+        <form method="POST" action="contact">
+            <input type="email" class="value" name="email" placeholder="Enter email id" required><br>
+            <input type="text" class="value" name="subject" placeholder="Enter subject" required><br>
+            <textarea type="text" class="value" id="message" name="message" placeholder="Enter message" required></textarea><br>
+            <button type="submit" class="btn">Submit</button><br><br>
+        </form>
+    </div>
+  </div>    
+  </div>
+    <div class="footer">madewithlove</div>
+</body>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+</html>

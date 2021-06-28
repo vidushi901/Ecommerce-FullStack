@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .nav {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 0px;
+            background-color: #222;
+            border-color: #080808;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            margin-bottom:6px;
+        }
+
+        li {
+            font-size: 25px;
+            font-family: 'Work Sans', sans-serif;
+            padding: 2px 8px;
+        }
+
+        li a {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 2px 15px;
+            color: white;
+        }
+
+        li a:hover {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            padding: 2px 15px;
+            color: gray;
+        }
+
+        .nav-text {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-text2 {
+            text-align: center;
+            float: right;
+            padding-top: 7px;
+        }
+
+        .nav-text1 {
+            display: inline-block;
+            background-color: #111;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: black;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .pimage {
+            height: 150px;
+            width: 150px;
+        }
+
+        .product {
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .row_products {
+            margin-top: 50px;
+            float: right;
+            width: 785px;
+            margin-bottom: 5%;
+        }
+
+        ul.list li{
+            background-color: white;
+            color: black;
+            display:inline;
+        }
+        ul.list{
+            background-color: white;
+            margin-bottom: 45px;
+            margin-left: 110px;
+        }
+
+        .list_item a {
+            background-color: white;
+            color: black;
+            width:120px;        }
+
+        .list_item a:hover {
+            color: grey;
+        }
+        .image{
+            height:400px;
+            width:500px;
+            margin-left: 113px;
+        }
+        .gallery{
+            height: 100px;
+            width:100px;
+        }
+        .content{
+            float:right;
+            width:410px;
+            margin-top: 170px;
+            font-family: 'Work Sans', sans-serif;
+            margin-right: 104px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="nav-text1"><a href="/dash"><i class="fas fa-shopping-cart fa-2x"></i></a></li>
+            <li class="nav-text"><a href="/dash">Home</a></li>
+            <li class="nav-text"><a href="/contact">Contact</a></li>
+            <li class="nav-text2"><a href="/logout">Logout</a></li>
+            <li class="nav-text2"><a href="/cart/orders">Orders</a></li>
+            <li class="nav-text2"><a href="/cart">MyCart</a></li>
+        </ul>
+    </nav>
+
+    <a href="/products" style="color:rgba(8, 5, 5, 0.411); margin:9px; font-size:37px ;margin-top: 5px;"><i class="fas fa-backward"></i></a>
+
+    
+    <div class="content">
+        <p>Product name: <%= p.title %></p>
+        <p>Product Description: <%= p.desc %></p>
+        <p>Price: Rs<%= p.price %></p>
+        <p><a style="color:black" href="/cart/add/<%= p._id %>">Add to cart</a></p>
+    </div>
+    <div>
+        <img class="image" src="/product_images/<%= p._id %>/<%= p.image %>"  id="i1" alt="">
+    </div>
+    <br>
+    <br>
+    <ul class="list">
+        <li class="list_item">
+           <a href="/product_images/<%= p._id %>/<%= p.image %>" alt="" data-fancybox="gallery" >
+               <img src="/product_images/<%= p._id %>/<%= p.image %>" class="gallery" id='i2' alt="" onmouseover="imgFunction1()">
+           </a>
+       </li> 
+       <li class="list_item">
+           <a href="/product_images/<%= p._id %>/gallery/<%= galleryImages[0] %>" data-fancybox="gallery">
+               <img src="/product_images/<%= p._id %>/gallery/<%= galleryImages[0] %>" class="gallery" id='i3' onmouseover="imgFunction2()">
+           </a>
+       </li>
+       <li class="list_item">
+        <a href="/product_images/<%= p._id %>/gallery/<%= galleryImages[1] %>" data-fancybox="gallery">
+            <img src="/product_images/<%= p._id %>/gallery/<%= galleryImages[1] %>" class="gallery" id='i4' onmouseover="imgFunction3()">
+        </a>
+    </li>
+   </ul>
+
+    <div class="footer">madewithlove</div>
+
+</body>
+<script>
+    function imgFunction1(){
+        var x= document.getElementById('i2').src;
+        document.getElementById('i1').src= x;
+
+    } 
+    function imgFunction2(){
+        var x= document.getElementById('i3').src;
+        document.getElementById('i1').src= x;
+    } 
+    function imgFunction3(){
+        var x= document.getElementById('i4').src;
+        document.getElementById('i1').src= x;
+    } 
+</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+
+</html>
